@@ -1,6 +1,7 @@
 <template>
-    <div class="home">
+    <div id="login">
         <title-bar></title-bar>
+        Log-in Page
     </div>
 </template>
 
@@ -14,7 +15,11 @@ import TitleBar from '../components/TitleBar.vue'
         TitleBar
     }
 })
-export default class Home extends Vue {
-
+export default class Login extends Vue {
+    
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
