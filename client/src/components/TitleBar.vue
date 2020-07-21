@@ -10,6 +10,8 @@ import Vue from 'vue'
 import { Component, Watch } from 'vue-property-decorator'
 import { Getter } from 'vuex-class'
 
+const namespace = 'profile'
+
 @Component
 export default class TitleBar extends Vue {
 
