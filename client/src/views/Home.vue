@@ -1,18 +1,15 @@
 <template>
     <div class="home">
-        <title-bar></title-bar>
+        Home Page
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import TitleBar from '../components/TitleBar.vue'
 
 @Component({
-    components: {
-        TitleBar
-    }
+    components: {}
 })
 export default class Home extends Vue {
 

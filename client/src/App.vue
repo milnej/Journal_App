@@ -1,14 +1,19 @@
 <template>
     <div id="app">
-        <router-view/>
+        <main-page/>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
+import MainPage from './views/MainPage.vue'
 
-@Component
+@Component({
+  components: {
+    MainPage
+  }
+})
 export default class App extends Vue {
 
 }

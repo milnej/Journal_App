@@ -4,8 +4,8 @@ import { WriteLifeState } from './types'
 import { RootState } from '../types'
 
 export const actions: ActionTree<WriteLifeState, RootState> = {
-    updateLoggedInStatus: ({commit}, status: string) => {
-        commit('setLoggedInStatus', status)
+    updateAccountStatus: ({commit}, status: string) => {
+        commit('setAccountStatus', status)
     },
 
     updateUsername: ({commit}, username: string) => {

@@ -3,8 +3,8 @@ import { WriteLifeState } from './types'
 import { RootState } from '../types'
 
 export const getters: GetterTree<WriteLifeState, RootState> = {
-    getLoggedInStatus: (state: WriteLifeState) => {
-        return state.loggedInStatus
+    getAccountStatus: (state: WriteLifeState) => {
+        return state.accountStatus
     },
 
     getUsername: (state: WriteLifeState) => {

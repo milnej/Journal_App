@@ -5,14 +5,15 @@ import { mutations } from './Mutations';
 import { WriteLifeState } from './types';
 import { RootState } from '../types';
 
-export const loggedInStatusOptions: Array<String> = [
+export const AccountStatusOptions: Array<string> = [
   'false',
   'true',
-  'in_progress'
+  'pending', // while passing credentials
+  'creating' // while creating new account
 ]
 
 export const state: WriteLifeState = {
-    loggedInStatus: 'false',
+    accountStatus: 'false',
     username: '',
 }
 

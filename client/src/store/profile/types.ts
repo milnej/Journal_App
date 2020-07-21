@@ -1,4 +1,4 @@
 export interface WriteLifeState {
-    loggedInStatus: string,
+    accountStatus: string,
     username: string
 }
