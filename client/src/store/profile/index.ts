@@ -5,9 +5,14 @@ import { mutations } from './Mutations';
 import { WriteLifeState } from './types';
 import { RootState } from '../types';
 
+export const loggedInStatusOptions: Array<String> = [
+  'false',
+  'true',
+  'in_progress'
+]
 
 export const state: WriteLifeState = {
-    loggedIn: false,
+    loggedInStatus: 'false',
     username: '',
 }
 

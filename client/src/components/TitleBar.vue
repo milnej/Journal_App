@@ -8,9 +8,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Watch } from 'vue-property-decorator'
+import { Getter } from 'vuex-class'
 
 @Component
 export default class TitleBar extends Vue {
+
+    // Vuex Imports
+    @Getter('')
     
     // Data
     title = 'Write Life'
@@ -21,6 +25,7 @@ export default class TitleBar extends Vue {
     }
 
     // Watchers
+    
 
 }
 </script>
