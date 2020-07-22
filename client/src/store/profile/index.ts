@@ -9,7 +9,8 @@ export const AccountStatusOptions: Array<string> = [
   'false',
   'true',
   'pending', // while passing credentials
-  'creating' // while creating new account
+  'creating', // while creating new account
+  'failed', // if there is an issue logging in
 ]
 
 export const state: WriteLifeState = {

@@ -7,7 +7,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { Getter, Action } from 'vuex-class'
+import { Action } from 'vuex-class'
 
 const namespace = 'profile'
 
@@ -16,7 +16,7 @@ const namespace = 'profile'
 })
 export default class Home extends Vue {
     
-    @Action('updateAccountStatus', { namespace })  updateAccountStatus!: Function
+    @Action('updateAccountStatus', { namespace }) updateAccountStatus!: Function
 
     // lifecycle hooks
     created() {
@@ -25,3 +25,7 @@ export default class Home extends Vue {
 
 }
 </script>
+
+<style lang="scss" scoped>
+    
+</style>

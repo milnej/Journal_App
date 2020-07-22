@@ -10,5 +10,16 @@ export const actions: ActionTree<WriteLifeState, RootState> = {
 
     updateUsername: ({commit}, username: string) => {
         commit('setUsername', username)
+    },
+
+    verifyAccount: ({commit}, payload: any) => {
+        const username: string = payload.username
+        const password: string = payload.password
+
+        // use axios to hit server to verify account
+
+        // Success
+        commit('setUsername', username)
+        commit('setAccountStatus', 'true')
     }
 }

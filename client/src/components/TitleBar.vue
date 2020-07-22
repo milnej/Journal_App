@@ -1,5 +1,5 @@
 <template>
-    <div id="TitleBar">
+    <div id="titleBar">
         {{title}}
         <button v-if='displayLogin' @click='login'>Log-in</button>
         <button v-if='displayLogout' @click='logout'>Log-out</button>
@@ -57,5 +57,8 @@ export default class TitleBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+    #titleBar {
+        background-color: #6eadff;
+        padding: 10px;
+    }
 </style>
