@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
+import AccountPage from '../views/AccountPage.vue'
+import Dashboard from '../views/Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +13,14 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/login',
-    name: 'Log-in',
-    component: Login
+    path: '/account',
+    name: 'Account-Page',
+    component: AccountPage
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
   }
 ]
 

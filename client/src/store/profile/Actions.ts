@@ -21,5 +21,16 @@ export const actions: ActionTree<WriteLifeState, RootState> = {
         // Success
         commit('setUsername', username)
         commit('setAccountStatus', 'true')
+    },
+
+    createAccount: ({commit}, payload: any) => {
+        const username: string = payload.username
+        const password: string = payload.password
+
+        // use axios to hit server to create new account
+
+        // Successful creation
+        commit('setUsername', username)
+        commit('setAccountStatus', 'true')
     }
 }

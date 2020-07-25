@@ -27,7 +27,7 @@ export default class TitleBar extends Vue {
 
     // Methods
     login() {
-        this.$router.push('login')
+        this.$router.push('account')
         this.updateAccountStatus('pending')
     }
 

@@ -1,9 +1,10 @@
 <template>
-    <div id="loginBox">
-        <input v-model="username" placeholder="Enter Username"><br>
+    <div id="createAccountBox">
+        <input v-model="username" placeholder="Enter Unique Username"><br>
         <input type="password" v-model="password" placeholder="Enter Password"><br>
-        <button @click="login">Log-in</button>
-        <button @click="createAccount">Create Account</button>
+        <input type="password" v-model="passwordCheck" placeholder="Confirm Password"><br>
+        <button @click="createAccount">Create Account</button><br>
+        <button @click="login">Already have an account?</button>
         <label v-if="errorDisplay"></label>
     </div>
 </template>
@@ -25,10 +26,11 @@ export default class LoginBox extends Vue {
     // Data
     username = ''
     password = ''
+    passwordCheck = ''
     errorDisplay = false
 
     // Methods
-    login() {
+    createAccount() {
         const payload: any = {
             username: this.username,
             password: this.password
@@ -36,25 +38,8 @@ export default class LoginBox extends Vue {
         this.verifyAccount(payload)
     }
 
-    createAccount() {
-        this.updateAccountStatus('creating')
-    }
-
-    // Watchers
-    @Watch('accountStatus')
-    onChangeAccountStatus() {
-        if (this.accountStatus === "failed") {
-            // display some error message
-            this.errorDisplay = true
-        } else if (this.accountStatus === "true") {
-            this.$router.push('dashboard')
-        } else if (this.accountStatus === "creating") {
-            this.$router.push('account-creation')
-        } else if (this.accountStatus === "pending" || this.accountStatus === "false") {
-            console.log("Idk yet")
-        } else {
-            console.log('Invalid account status.')
-        }
+    login() {
+        this.updateAccountStatus('pending')
     }
 }
 </script>
