@@ -3,7 +3,7 @@
         <input v-model="username" placeholder="Enter Unique Username"><br>
         <input type="password" v-model="password" placeholder="Enter Password"><br>
         <input type="password" v-model="passwordCheck" placeholder="Confirm Password"><br>
-        <button @click="createAccount">Create Account</button><br>
+        <button @click="createNewAccount">Create Account</button><br>
         <button @click="login">Already have an account?</button>
         <label v-if="errorDisplay"></label>
     </div>
@@ -20,7 +20,7 @@ const namespace = 'profile'
 export default class LoginBox extends Vue {
 
     @Getter('getAccountStatus', { namespace }) accountStatus!: string
-    @Action('verifyAccount', { namespace }) verifyAccount!: Function
+    @Action('createAccount', { namespace }) createAccount!: Function
     @Action('updateAccountStatus', { namespace }) updateAccountStatus!: Function
     
     // Data
@@ -30,12 +30,12 @@ export default class LoginBox extends Vue {
     errorDisplay = false
 
     // Methods
-    createAccount() {
+    createNewAccount() {
         const payload: any = {
             username: this.username,
             password: this.password
         }
-        this.verifyAccount(payload)
+        this.createAccount(payload)
     }
 
     login() {

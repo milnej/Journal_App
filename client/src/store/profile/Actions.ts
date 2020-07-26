@@ -17,18 +17,18 @@ export const actions: ActionTree<WriteLifeState, RootState> = {
     async verifyAccount({commit}, payload: any) {
         const username: string = payload.username
         const password: string = payload.password
-        console.log('test')
         // use axios to hit server to verify account
         try {
             const res = await axios.post(`${urlPrefix}/accounts/login`, {
                 username: username,
                 password: password
             })
-            const status: boolean = res.data
-            if (status) {
+            const status: string = res.data
+            if (status == "success") {
                 commit('setUsername', username)
                 commit('setAccountStatus', 'true')
             } else {
+                console.log(status)
                 commit('setAccountStatus', 'failed')
             }
         } catch (err) {
@@ -41,9 +41,21 @@ export const actions: ActionTree<WriteLifeState, RootState> = {
         const password: string = payload.password
 
         // use axios to hit server to create new account
-
-        // Successful creation
-        commit('setUsername', username)
-        commit('setAccountStatus', 'true')
+        try {
+            const res = await axios.put(`${urlPrefix}/accounts/create`, {
+                username: username,
+                password: password
+            })
+            const status: string = res.data
+            if (status == "success") {
+                commit('setUsername', username)
+                commit('setAccountStatus', 'true')
+            } else {
+                console.log(status)
+                commit('setAccountStatus', 'failed')
+            }
+        } catch (err) {
+            console.log(err)
+        }
     }
 }

@@ -9,7 +9,10 @@ if( process.env.NODE_ENV === "production") {
     runtimeCompiler: undefined,
     productionSourceMap: undefined,
     parallel: undefined,
-    css: undefined,
+    css: undefined
+  };
+} else {
+  module.exports = {
     devServer: {
       host: 'localhost',
       proxy: {
@@ -18,5 +21,5 @@ if( process.env.NODE_ENV === "production") {
         }
       }
     }
-  };
+  }
 }
