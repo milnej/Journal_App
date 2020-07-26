@@ -16,6 +16,12 @@ def accountCreationValidation(username, password):
     """
     Validates that the username and password adhere to well formed guidlines
     """
+    if username in test_accounts:
+        return False
+    
+    if len(username) < 5 or len(password) < 5:
+        return False
+
     return True
 
 # ----- API ENDPOINTS ----- #
