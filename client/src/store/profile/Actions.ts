@@ -3,27 +3,40 @@ import axios from 'axios'
 import { WriteLifeState } from './types'
 import { RootState } from '../types'
 
+const urlPrefix = '/api/v1'
+
 export const actions: ActionTree<WriteLifeState, RootState> = {
-    updateAccountStatus: ({commit}, status: string) => {
+    updateAccountStatus({commit}, status: string) {
         commit('setAccountStatus', status)
     },
 
-    updateUsername: ({commit}, username: string) => {
+    updateUsername({commit}, username: string) {
         commit('setUsername', username)
     },
 
-    verifyAccount: ({commit}, payload: any) => {
+    async verifyAccount({commit}, payload: any) {
         const username: string = payload.username
         const password: string = payload.password
-
+        console.log('test')
         // use axios to hit server to verify account
-
-        // Success
-        commit('setUsername', username)
-        commit('setAccountStatus', 'true')
+        try {
+            const res = await axios.post(`${urlPrefix}/accounts/login`, {
+                username: username,
+                password: password
+            })
+            const status: boolean = res.data
+            if (status) {
+                commit('setUsername', username)
+                commit('setAccountStatus', 'true')
+            } else {
+                commit('setAccountStatus', 'failed')
+            }
+        } catch (err) {
+            console.log(err)
+        }
     },
 
-    createAccount: ({commit}, payload: any) => {
+    async createAccount({commit}, payload: any) {
         const username: string = payload.username
         const password: string = payload.password
 

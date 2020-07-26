@@ -9,6 +9,14 @@ if( process.env.NODE_ENV === "production") {
     runtimeCompiler: undefined,
     productionSourceMap: undefined,
     parallel: undefined,
-    css: undefined
+    css: undefined,
+    devServer: {
+      host: 'localhost',
+      proxy: {
+        '/api/v1/': {
+          target: 'http://127.0.0.1:5000'
+        }
+      }
+    }
   };
 }
