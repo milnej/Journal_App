@@ -1,6 +1,8 @@
 <template>
     <div id='dashboard'>
         {{title}}
+        <nav-pane></nav-pane>
+        <router-view/>
     </div>
 </template>
 
@@ -8,11 +10,14 @@
 import Vue from 'vue'
 import { Component, Watch } from 'vue-property-decorator'
 import { Getter, Action } from 'vuex-class'
+import NavPane from '../components/NavPane.vue'
 
 const namespace = 'profile'
 
 @Component({
-    components: {}
+    components: {
+        NavPane
+    }
 })
 export default class Dashboard extends Vue {
 
