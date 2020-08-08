@@ -1,9 +1,9 @@
 <template>
-    <div id="loginBox">
-        <input v-model="username" placeholder="Enter Username"><br>
-        <input type="password" v-model="password" placeholder="Enter Password"><br>
-        <button @click="login">Log-in</button>
-        <button @click="createAccount">Create Account</button>
+    <div id="loginBox" class='form-group'>
+        <input type='username' class='inputText' v-model="username" v-on:keyup.enter="login" placeholder="Enter Username"><br>
+        <input type='password' class='inputText' v-model="password" v-on:keyup.enter="login" placeholder="Enter Password"><br>
+        <button id='loginButton' @click="login" type='button' class='btn btn-info'>Log-in</button>
+        <button id='createAccountButton' @click="createAccount" type='button' class='btn btn-info'>Create Account</button>
         <label v-if="errorDisplay"></label>
     </div>
 </template>
@@ -60,5 +60,18 @@ export default class LoginBox extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+@import '../../assets/custom.scss';
+#loginBox {
+    margin-left: 35%;
+    margin-right: 35%;
+}
+#loginButton {
+    float: left;
+}
+#createAccountButton {
+    float: right;
+}
+.inputText {
+    width: 100%;
+}
 </style>

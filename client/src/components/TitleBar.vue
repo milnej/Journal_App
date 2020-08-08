@@ -1,8 +1,13 @@
 <template>
-    <div id="titleBar">
-        {{title}}
-        <button v-if='displayLogin' @click='login'>Log-in</button>
-        <button v-if='displayLogout' @click='logout'>Log-out</button>
+    <div id="titleBar" class='container'>
+        <div class='row'>
+            <div class='col-sm'></div>
+            <div id='title' class='col-sm'>{{title}}</div>
+            <div class='col-sm'>
+                <button v-if='displayLogin' @click='login' type='button' class='btn btn-primary'>Log-in</button>
+                <button v-if='displayLogout' @click='logout' type='button' class='btn btn-primary'>Log-out</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -57,8 +62,19 @@ export default class TitleBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-    #titleBar {
-        background-color: #6eadff;
-        padding: 10px;
-    }
+@import '../../assets/custom.scss';
+#titleBar {
+    background-color: $title-blue;
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+    max-width: 100%;
+}
+#title {
+    float: center;
+    font-size: large;
+}
+.btn {
+    float: right;
+}
 </style>
